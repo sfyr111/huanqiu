@@ -28,6 +28,13 @@ module.exports = appInfo => {
     },
   };
 
+  exports.view = {
+    mapping: {
+      '.ejs': 'ejs',
+    },
+  };
+
+  exports.ejs = {};
 
   return config;
 };
