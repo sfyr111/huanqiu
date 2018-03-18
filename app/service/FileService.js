@@ -34,7 +34,7 @@ module.exports = app => class CartService extends Service {
         fields: stream.fields,
       });
     } catch (e) {
-      this.ctx.loggger.error(new Error(`上传图片失败, filename: ${filename}`));
+      this.ctx.logger.error(new Error(`上传图片失败, filename: ${filename}`));
       return this.ServerResponse.createByError('上传文件失败');
       await sendToWormhole(stream);
       throw new Error(e);
@@ -49,7 +49,7 @@ module.exports = app => class CartService extends Service {
       await unlinkAsync(path.resolve(`app/public/${filePath}/${filename}`));
       return this.ServerResponse.createBySuccessMsg('删除文件成功');
     } catch (e) {
-      this.ctx.loggger.error(new Error(`删除文件失败, filename: ${e.stack}`));
+      this.ctx.logger.error(new Error(`删除文件失败, filename: ${e.stack}`));
       return this.ServerResponse.createByErrorMsg('删除文件失败');
     }
   }
