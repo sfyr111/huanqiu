@@ -36,5 +36,12 @@ module.exports = appInfo => {
 
   exports.ejs = {};
 
+  exports.multipart = {
+    // will append to whilelist
+    fileExtensions: [
+      '.pdf',
+    ],
+  };
+
   return config;
 };

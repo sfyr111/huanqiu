@@ -10,5 +10,8 @@ module.exports = app => {
   router.get('/admin', controller.page.admin);
 
   router.put('/manage/upload', controller.api.upload); // 图片上传
-  router.delete('/manage/deleteImage/:filename', controller.api.deleteImage); // 删除图片
+  router.delete('/manage/delete_file/:type/:filename', controller.api.deleteFile); // 删除图片
+
+  router.post('/manage/banner/add', controller.api.addBanner);
+  router.put('/manage/banner/update', controller.api.updateBanner);
 };
