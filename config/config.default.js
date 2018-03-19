@@ -27,14 +27,14 @@ module.exports = appInfo => {
       enable: false,
     },
   };
-
-  exports.view = {
-    mapping: {
-      '.ejs': 'ejs',
-    },
-  };
-
-  exports.ejs = {};
+  //
+  // exports.view = {
+  //   mapping: {
+  //     '.ejs': 'ejs',
+  //   },
+  // };
+  //
+  // exports.ejs = {};
 
   exports.multipart = {
     // will append to whilelist

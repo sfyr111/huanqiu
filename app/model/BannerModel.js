@@ -1,5 +1,5 @@
 module.exports = app => {
-  const { DATE, UUID, UUIDV4, STRING } = app.Sequelize;
+  const { DATE, UUID, UUIDV4, STRING, INTEGER } = app.Sequelize;
 
   const BannerModel = app.model.define('banner', {
     id: {
@@ -29,6 +29,10 @@ module.exports = app => {
       type: DATE,
       allowNull: false,
       defaultValue: new Date(),
+    },
+    show: {
+      type: INTEGER,
+      allowNull: true,
     },
   }, {
     timestamps: false,

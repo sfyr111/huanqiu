@@ -1,6 +1,6 @@
 const Service = require('egg').Service;
 
-module.exports = app => class CartService extends Service {
+module.exports = app => class BannerService extends Service {
   constructor(ctx) {
     super(ctx);
     this.ResponseCode = ctx.response.ResponseCode;
