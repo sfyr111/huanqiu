@@ -1,6 +1,6 @@
 'use strict';
 
-const _config = require('../config');
+// const _config = require('../config');
 
 module.exports = appInfo => {
   const config = exports = {};
@@ -11,16 +11,16 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
-  config.sequelize = _config.mysql;
+  // config.sequelize = _config.mysql;
 
-  config.redis = _config.redis;
+  // config.redis = _config.redis;
 
-  config.sessionRedis = {
-    key: 'huanqiu',
-    maxAge: 24 * 3600 * 1000,
-    httpOnly: true,
-    encrypt: false,
-  };
+  // config.sessionRedis = {
+  //   key: 'huanqiu',
+  //   maxAge: 24 * 3600 * 1000,
+  //   httpOnly: true,
+  //   encrypt: false,
+  // };
 
   config.security = {
     csrf: {
@@ -41,6 +41,24 @@ module.exports = appInfo => {
     fileExtensions: [
       '.pdf',
     ],
+  };
+
+
+  config.oss = {
+    // client: {
+    //   accessKeyId: 'LTAItynAEvcPJHkE',
+    //   accessKeySecret: '5cZb18s6ZeBxY6K9duVavWL6Aup7T5',
+    //   bucket: 'egg-commerce',
+    //   endpoint: 'oss-cn-hangzhou.aliyuncs.com',
+    //   timeout: '60s',
+    // },
+    client: {
+      accessKeyId: 'LTAI8ltw5xCoCqpO',
+      accessKeySecret: 'HmMIFMsdJLj2mzBmu7m8qpAuig8euV',
+      bucket: '365jf-test2',
+      endpoint: 'oss-cn-shanghai.aliyuncs.com',
+      timeout: '60s',
+    },
   };
 
   return config;

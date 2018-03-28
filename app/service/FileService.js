@@ -24,20 +24,21 @@ module.exports = app => class FileService extends Service {
     let result;
     try {
       // 本地上传
-      const ws = fs.createWriteStream(path.resolve(`app/public/manage/${filePath}/${filename}`));
-      stream.pipe(ws);
+      // const ws = fs.createWriteStream(path.resolve(`app/public/manage/${filePath}/${filename}`));
+      // stream.pipe(ws);
       // oss 服务
-      // result = await this.ctx.oss.put(name + now, stream)
+      result = await this.ctx.oss.put(name + Date.now(), stream);
+      console.log(result)
       return this.ServerResponse.createBySuccessMsgAndData('上传文件成功', {
         filename,
         url: result ? result.url : `localhost:7001/public/manage/${filePath}/${filename}`,
         fields: stream.fields,
       });
     } catch (e) {
+      console.log(e)
       this.ctx.logger.error(new Error(`上传图片失败, filename: ${filename}`));
-      return this.ServerResponse.createByError('上传文件失败');
       await sendToWormhole(stream);
-      throw new Error(e);
+      return this.ServerResponse.createByError('上传文件失败');
     } finally { await sendToWormhole(stream); }
   }
 

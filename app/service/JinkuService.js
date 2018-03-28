@@ -3,8 +3,8 @@ const Service = require('egg').Service;
 module.exports = app => class JinkuService extends Service {
   constructor(ctx) {
     super(ctx);
-    this.JinkuModel = ctx.JinkuModel;
-    this.JinkuFormModel = ctx.JinkuFormModel;
+    this.JinkuModel = ctx.model.JinkuModel;
+    this.JinkuFormModel = ctx.model.JinkuFormModel;
     this.ResponseCode = ctx.response.ResponseCode;
     this.ServerResponse = ctx.response.ServerResponse;
   }
@@ -51,7 +51,7 @@ module.exports = app => class JinkuService extends Service {
 
   async getAllJinku() {
     try {
-      const result = await this.JinkuModel.findAll().then(r => r && r.toJSON());
+      const result = await this.JinkuModel.findAll().then(rows => rows && rows.map(r => r && r.toJSON()));
       if (!result) return this.ServerResponse.createByErrorMsg('不存在');
       return this.ServerResponse.createBySuccessData(result);
     } catch (e) {

@@ -8,6 +8,10 @@ module.exports = app => {
       allowNull: false,
       primaryKey: true,
     },
+    userId: {
+      type: UUID,
+      allowNull: true,
+    },
     name: {
       type: STRING(200),
       allowNull: true,
@@ -29,12 +33,12 @@ module.exports = app => {
     },
     // 领域
     field: {
-      type: TEXT,
+      type: TEXT('long'),
       allowNull: true,
     },
     // 简介
     Introduction: {
-      type: TEXT,
+      type: TEXT('long'),
       allowNull: true,
     },
     show: {
