@@ -23,6 +23,11 @@
 //   package: 'egg-view-ejs',
 // };
 
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
+};
+
 
 exports.oss = {
   enable: true,
